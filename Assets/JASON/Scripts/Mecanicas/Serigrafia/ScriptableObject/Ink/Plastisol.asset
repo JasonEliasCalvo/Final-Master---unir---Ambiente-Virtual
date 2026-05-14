@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a9257cc84ac4946a6ab04517631380, type: 3}
+  m_Name: Plastisol
+  m_EditorClassIdentifier: 
+  materialName: Plastisol
+  materialDescription: 'es  pintura de plastisol
+
+'
+  materialIcon: {fileID: 21300000, guid: 42b61f85e0bb15d40b0a9424e4a5dfc1, type: 3}
+  materialPrefab: {fileID: 3043805426427183651, guid: 6b13c4a60c5bb9b4288413ded75033ac, type: 3}
+  inkType: 2
+  color: {r: 0, g: 0, b: 0, a: 0}

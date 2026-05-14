@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74c7b8affc7b124ba7be46a0dafe27d, type: 3}
+  m_Name: PrintDatabase
+  m_EditorClassIdentifier: 
+  printSurfaces:
+  - {fileID: 11400000, guid: eb6fd33370a87ea4e955861e0ab987ff, type: 2}
+  - {fileID: 11400000, guid: 0d9ba8f43e1e322418a77aa7c193786f, type: 2}
+  designs:
+  - {fileID: 11400000, guid: 3ebe199f30bb1844498a550fea6a1d6e, type: 2}
+  - {fileID: 11400000, guid: 24ecfbc8504edce43a565b04f35c3099, type: 2}
+  inks:
+  - {fileID: 11400000, guid: 00d999cd4c9c2174795b8ed19b5dbbc1, type: 2}
+  - {fileID: 11400000, guid: f90d47e0153c25a47a92e06f744c935f, type: 2}
+  - {fileID: 11400000, guid: 0261d7d2976248a4ab319e6dec017b2b, type: 2}

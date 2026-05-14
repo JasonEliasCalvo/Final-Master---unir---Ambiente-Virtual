@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a9257cc84ac4946a6ab04517631380, type: 3}
+  m_Name: UV
+  m_EditorClassIdentifier: 
+  materialName: UV
+  materialDescription: Es tinta UV
+  materialIcon: {fileID: 21300000, guid: 42b61f85e0bb15d40b0a9424e4a5dfc1, type: 3}
+  materialPrefab: {fileID: 3043805426427183651, guid: 06ac2e1d5bfb90946811b0497c84a056, type: 3}
+  inkType: 1
+  color: {r: 0, g: 0, b: 0, a: 0}
