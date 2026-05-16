@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialName: UV
   materialDescription: Es tinta UV
-  materialIcon: {fileID: 21300000, guid: 42b61f85e0bb15d40b0a9424e4a5dfc1, type: 3}
+  materialIcon: {fileID: 21300000, guid: f40e385f19627d14cb01549ca45b9abc, type: 3}
   materialPrefab: {fileID: 3043805426427183651, guid: 06ac2e1d5bfb90946811b0497c84a056, type: 3}
   inkType: 1
   color: {r: 0, g: 0, b: 0, a: 0}

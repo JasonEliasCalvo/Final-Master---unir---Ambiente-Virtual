@@ -66,6 +66,11 @@ public class UIManager : MonoBehaviour
     // API
     // -------------------------
 
+    public void ShowTutorial()
+    {
+
+    }
+
     public void UpdateInventoryUI(int id, bool isActive)
     {
         if (id >= 0 && id < inventoryIcons.Length)
