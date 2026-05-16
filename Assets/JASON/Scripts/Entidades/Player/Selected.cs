@@ -233,6 +233,7 @@ public class Selected : MonoBehaviour
                 return;
             }
 
+            ScreenPrintingManager.instance.OnObjectDropped(held);
             PlaceHeldInSocket(currentSocket, held);
             player.ClearCurrentGrabReference();
             HideSocketPreview();

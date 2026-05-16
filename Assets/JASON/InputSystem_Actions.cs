@@ -192,6 +192,24 @@ namespace _PlayerInputActions
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SelectSlot1"",
+                    ""type"": ""Button"",
+                    ""id"": ""72deeb8b-5c54-4630-8703-2695c8ccaba5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectSlot2"",
+                    ""type"": ""Button"",
+                    ""id"": ""fd6162fe-7d6b-436b-9019-6a460ccdcb6d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -731,6 +749,28 @@ namespace _PlayerInputActions
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Up/Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43624ad9-bf1b-401e-a0ba-1d630f750e35"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""SelectSlot1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ee96112-4e07-46ee-bf53-f837c43e2524"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""SelectSlot2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1433,6 +1473,8 @@ namespace _PlayerInputActions
             m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
             m_Player_Drop = m_Player.FindAction("Drop", throwIfNotFound: true);
             m_Player_UpDown = m_Player.FindAction("Up/Down", throwIfNotFound: true);
+            m_Player_SelectSlot1 = m_Player.FindAction("SelectSlot1", throwIfNotFound: true);
+            m_Player_SelectSlot2 = m_Player.FindAction("SelectSlot2", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1540,6 +1582,8 @@ namespace _PlayerInputActions
         private readonly InputAction m_Player_Sprint;
         private readonly InputAction m_Player_Drop;
         private readonly InputAction m_Player_UpDown;
+        private readonly InputAction m_Player_SelectSlot1;
+        private readonly InputAction m_Player_SelectSlot2;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
         /// </summary>
@@ -1595,6 +1639,14 @@ namespace _PlayerInputActions
             /// Provides access to the underlying input action "Player/UpDown".
             /// </summary>
             public InputAction @UpDown => m_Wrapper.m_Player_UpDown;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/SelectSlot1".
+            /// </summary>
+            public InputAction @SelectSlot1 => m_Wrapper.m_Player_SelectSlot1;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/SelectSlot2".
+            /// </summary>
+            public InputAction @SelectSlot2 => m_Wrapper.m_Player_SelectSlot2;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -1654,6 +1706,12 @@ namespace _PlayerInputActions
                 @UpDown.started += instance.OnUpDown;
                 @UpDown.performed += instance.OnUpDown;
                 @UpDown.canceled += instance.OnUpDown;
+                @SelectSlot1.started += instance.OnSelectSlot1;
+                @SelectSlot1.performed += instance.OnSelectSlot1;
+                @SelectSlot1.canceled += instance.OnSelectSlot1;
+                @SelectSlot2.started += instance.OnSelectSlot2;
+                @SelectSlot2.performed += instance.OnSelectSlot2;
+                @SelectSlot2.canceled += instance.OnSelectSlot2;
             }
 
             /// <summary>
@@ -1698,6 +1756,12 @@ namespace _PlayerInputActions
                 @UpDown.started -= instance.OnUpDown;
                 @UpDown.performed -= instance.OnUpDown;
                 @UpDown.canceled -= instance.OnUpDown;
+                @SelectSlot1.started -= instance.OnSelectSlot1;
+                @SelectSlot1.performed -= instance.OnSelectSlot1;
+                @SelectSlot1.canceled -= instance.OnSelectSlot1;
+                @SelectSlot2.started -= instance.OnSelectSlot2;
+                @SelectSlot2.performed -= instance.OnSelectSlot2;
+                @SelectSlot2.canceled -= instance.OnSelectSlot2;
             }
 
             /// <summary>
@@ -2108,6 +2172,20 @@ namespace _PlayerInputActions
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnUpDown(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "SelectSlot1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnSelectSlot1(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "SelectSlot2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnSelectSlot2(InputAction.CallbackContext context);
         }
         /// <summary>
         /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

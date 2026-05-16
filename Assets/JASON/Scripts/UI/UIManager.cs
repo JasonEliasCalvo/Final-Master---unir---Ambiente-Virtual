@@ -16,7 +16,6 @@ public class UIManager : MonoBehaviour
     public GameObject pausePanel;
     public GameObject confirmPanel;
     public GameObject warningPanel;
-    public GameObject inventoryPanel;
     public GameObject securityPanel;
     public GameObject interactionPanel;
     public GameObject mousePanel;
@@ -29,6 +28,10 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI scoretext;
     public Image[] inventoryIcons;
 
+    [Header("Inventory Tutorial")]
+    public CanvasGroup inventoryHintPanel;
+    private bool tutorialShown = false;
+
     [Header("UI Sounds")]
     public AudioClip sound;
 
@@ -36,6 +39,27 @@ public class UIManager : MonoBehaviour
     public int score = 100;
     public bool showCursor = false;
     public PlayerController player;
+
+    public void ShowInventoryTutorial()
+    {
+        if (tutorialShown || inventoryHintPanel == null) return;
+
+        Debug.Log("Mostrando tutorial de inventario");
+
+        tutorialShown = true; // Asegura que solo pase una vez
+
+        // Secuencia de animación
+        inventoryHintPanel.gameObject.SetActive(true);
+        inventoryHintPanel.alpha = 0; // Empezar invisible
+
+        // Fade In
+        inventoryHintPanel.DOFade(1f, 1f).OnComplete(() => {
+            // Esperar 4 segundos visible y luego hacer Fade Out
+            inventoryHintPanel.DOFade(0f, 1.5f)
+                .SetDelay(4f)
+                .OnComplete(() => inventoryHintPanel.gameObject.SetActive(false));
+        });
+    }
 
     // -------------------------
     // Ciclo de vida
@@ -65,14 +89,6 @@ public class UIManager : MonoBehaviour
     // -------------------------
     // API
     // -------------------------
-
-    public void UpdateInventoryUI(int id, bool isActive)
-    {
-        if (id >= 0 && id < inventoryIcons.Length)
-        {
-            inventoryIcons[id].gameObject.SetActive(isActive);
-        }
-    }
 
     public void ShowPausePanel(bool state)
     {
@@ -174,8 +190,7 @@ public class UIManager : MonoBehaviour
           (optionsPanel != null && optionsPanel.activeSelf) ||
           (confirmPanel != null && confirmPanel.activeSelf) ||
           (warningPanel != null && warningPanel.activeSelf) ||
-          (settingPanel != null && settingPanel.PanelCanvasGroup.gameObject.activeSelf) ||
-          (inventoryPanel != null && inventoryPanel.activeSelf);
+          (settingPanel != null && settingPanel.PanelCanvasGroup.gameObject.activeSelf);
 
         if (chatBoxUI != null)
         {

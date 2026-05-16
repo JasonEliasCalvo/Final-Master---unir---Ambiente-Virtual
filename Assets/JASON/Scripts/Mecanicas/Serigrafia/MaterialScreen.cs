@@ -10,7 +10,17 @@ public class MaterialScreen : MonoBehaviour
 
     public void SetMaterial(FabricMaterial material)
     {
-        Debug.Log($"Setting material: {material?.materialName}");
-        materialImage.sprite = material?.materialIcon;
+        if (material == null)
+        {
+            materialImage.sprite = null;
+            materialImage.enabled = false; // Opcional: apaga el componente imagen
+            if (materialNameText != null) materialNameText.text = "";
+        }
+        else
+        {
+            materialImage.sprite = material.materialIcon;
+            materialImage.enabled = true;
+            if (materialNameText != null) materialNameText.text = material.materialName;
+        }
     }
 }

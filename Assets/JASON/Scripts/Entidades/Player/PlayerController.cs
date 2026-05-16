@@ -97,9 +97,6 @@ public class PlayerController : MonoBehaviour
         };
         inputActions.Player.UpDown.canceled += ctx => wheelInput = 0f;
 
-        inputActions.Player.SelectSlot1.performed += ctx => HandleInventoryInput(0);
-        inputActions.Player.SelectSlot2.performed += ctx => HandleInventoryInput(1);
-
         GameManager.instance.eventGameStart += ActiveMovement;
         GameManager.instance.eventGameEnd += DeactivateMovement;
     }
@@ -158,6 +155,7 @@ public class PlayerController : MonoBehaviour
             CurrentGrab = null;
             rbGrab = null;
             UIManager.instance.ShowDropPanel(false);
+            ScreenPrintingManager.instance.OnObjectDropped(CurrentGrab);
         }
         else
         {
@@ -264,18 +262,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void HandleInventoryInput(int slotIndex)
-    {
-        if (CurrentGrab == null)
-        {
-            Debug.Log("No hay objeto en el inventario para mostrar.");
-            return;
-        }
-
-        // Aquí iría tu lógica actual para mostrar/ocultar el objeto
-        // Ejemplo: CurrentGrab.SetActive(!CurrentGrab.activeSelf);
-    }
-
     private bool IsTypingInInputField()
     {
         if (EventSystem.current == null) return false;
@@ -327,10 +313,13 @@ public class PlayerController : MonoBehaviour
         var socket = FindAnyObjectByType<Selected>().currentSocket;
         if (socket != null)
         {
+            Debug.Log("Objeto estaba en un socket. Forzando salida del socket.");
             var interactable = cg.GetComponent<IXRSelectInteractable>();
             socket.interactionManager.SelectExit(socket, interactable);
             socket.enabled = false;
         }
+
+        ScreenPrintingManager.instance.OnObjectPickedUp(obj);
 
         isGrabbed = true;
         CurrentGrab = obj;
@@ -345,6 +334,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator ReenableGrabAndSocket(CustomizedGrab cg, XRSocketInteractor socket)
     {
+        Debug.Log("Rehabilitando grab y socket después de un breve retraso.");
         yield return new WaitForSeconds(0.1f);
 
         if (cg != null)
@@ -357,11 +347,7 @@ public class PlayerController : MonoBehaviour
     {
         if (CurrentGrab == null) return;
 
-        InteractableOptions itemInfo = CurrentGrab.GetComponent<InteractableOptions>();
-        if (itemInfo != null)
-        {
-            UIManager.instance.UpdateInventoryUI(itemInfo.ID, false);
-        }
+        ScreenPrintingManager.instance.OnObjectDropped(CurrentGrab);
 
         isGrabbed = false;
         CurrentGrab.transform.SetParent(null);
@@ -372,6 +358,7 @@ public class PlayerController : MonoBehaviour
 
         CurrentGrab = null;
         rbGrab = null;
+
         UIManager.instance.ShowDropPanel(false);
     }
 
@@ -387,7 +374,7 @@ public class PlayerController : MonoBehaviour
         if (rbGrab != null)
         {
             rbGrab.isKinematic = false;
-
+            ScreenPrintingManager.instance.OnObjectDropped(CurrentGrab);
             CurrentGrab.transform.position = dropPoint.position;
             CurrentGrab.transform.position += transform.right * Random.Range(-0.2f, 0.2f);
             rbGrab.AddForce((transform.forward + Vector3.up * 0.2f) * 2f, ForceMode.Impulse);

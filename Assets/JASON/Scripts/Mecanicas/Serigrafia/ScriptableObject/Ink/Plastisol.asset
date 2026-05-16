@@ -16,7 +16,7 @@ MonoBehaviour:
   materialDescription: 'es  pintura de plastisol
 
 '
-  materialIcon: {fileID: 21300000, guid: 42b61f85e0bb15d40b0a9424e4a5dfc1, type: 3}
+  materialIcon: {fileID: 21300000, guid: 8ad380795ae93464789fe9c38f4029ba, type: 3}
   materialPrefab: {fileID: 3043805426427183651, guid: 6b13c4a60c5bb9b4288413ded75033ac, type: 3}
   inkType: 2
   color: {r: 0, g: 0, b: 0, a: 0}
