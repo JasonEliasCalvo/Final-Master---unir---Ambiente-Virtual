@@ -5,21 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Por defecto Unity/Scenes/Economia circular.unity
-    guid: f2d0dcd2be4c73948b860868ad7ec3ef
   - enabled: 1
-    path: Assets/Por defecto Unity/Scenes/Escena Carlos.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Por defecto Unity/Scenes/Shader.unity
-    guid: 00bb8bf8e6ce09a46be56fae74fa7ef1
-  - enabled: 0
-    path: Assets/Por defecto Unity/Scenes/Lobby Meta.unity
-    guid: 36447d4ca79654f498e92fff85bc91f1
-  - enabled: 0
-    path: Assets/Por defecto Unity/Scenes/EC Escenario.unity
-    guid: 1a4a558b4d6b0564ea50b8994e007aea
+    path: Assets/Por defecto Unity/Scenes/Serigrafia proseso corto.unity
+    guid: 72e75f3a5bb393f48b73a84877c24dd7
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: a31718e892f102046a90dbc6ac01cf63, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

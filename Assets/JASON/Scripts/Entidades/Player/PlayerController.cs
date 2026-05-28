@@ -152,10 +152,10 @@ public class PlayerController : MonoBehaviour
         {
             isGrabbed = false;
             CurrentGrab.transform.SetParent(null);
-            CurrentGrab = null;
-            rbGrab = null;
-            UIManager.instance.ShowDropPanel(false);
             ScreenPrintingManager.instance.OnObjectDropped(CurrentGrab);
+            rbGrab = null;
+            CurrentGrab = null;
+            UIManager.instance.ShowDropPanel(false);
         }
         else
         {
