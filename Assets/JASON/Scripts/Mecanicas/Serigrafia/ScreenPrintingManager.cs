@@ -16,6 +16,8 @@ public class ScreenPrintingManager : MonoBehaviour
     [SerializeField] private GameObject printSurfaceSpawnPoint;
     [SerializeField] PrintDesign design;
 
+    private GameObject instantiateFrame;
+
     [Header("Pantallas UI")]
     [SerializeField] private ScreenGroups screens;
 
@@ -29,14 +31,17 @@ public class ScreenPrintingManager : MonoBehaviour
     private GameObject grabbedObject;
     private GameObject instantiateSuperfice;
     private GameObject instantiateInk;
+    public GameObject InstantiateFrame;
     private FabricMaterial pendingMaterial;
     private PrintSurface selectedPrintSurface;
     private PrintDesign selectedDesign;
+    private Frame selectedFrame;
     private Ink selectedInk;
 
     [Header("Mini Inventario")]
     public bool surfaceIsDropped = false;
     public bool inkIsDropped = false;
+    public bool frameIsDropped = false;
 
     #region Clases internas
     [Serializable]
@@ -45,6 +50,7 @@ public class ScreenPrintingManager : MonoBehaviour
         public List<MaterialScreen> inkScreens = new List<MaterialScreen>();
         public List<MaterialScreen> designScreens = new List<MaterialScreen>();
         public List<MaterialScreen> printSurfaceScreens = new List<MaterialScreen>();
+        public List<MaterialScreen> frameScreens = new List<MaterialScreen>();
     }
 
     [Serializable]
@@ -53,6 +59,7 @@ public class ScreenPrintingManager : MonoBehaviour
         public UnityEvent onSelectPrintSurface;
         public UnityEvent onSelectDesign;
         public UnityEvent onSelectInk;
+        public UnityEvent onSelectFrame;
         public UnityEvent onEndSimulation;
     }
     #endregion
@@ -95,7 +102,6 @@ public class ScreenPrintingManager : MonoBehaviour
 
     public void ToggleMaterialInHand()
     {
-        // REGLA: Si el objeto está tirado en el suelo, no puedes usar el botón del inventario
         if (instantiateSuperfice == null || surfaceIsDropped) return;
 
         bool currentlyActive = instantiateSuperfice.activeSelf;
@@ -107,11 +113,9 @@ public class ScreenPrintingManager : MonoBehaviour
             if (PlayerController.instance.CurrentGrab != null)
             {
                 UIManager.instance.ShowWarningPanel(true, "Mano ocupada, no puedes sacar la superficie.");
-                Debug.Log("Mano ocupada, no puedes sacar la superficie.");
                 return;
             }
 
-            // Aparecer y posicionar
             instantiateSuperfice.SetActive(true);
             instantiateSuperfice.transform.position = printSurfaceSpawnPoint.transform.position;
             instantiateSuperfice.transform.rotation = printSurfaceSpawnPoint.transform.rotation;
@@ -121,10 +125,8 @@ public class ScreenPrintingManager : MonoBehaviour
         }
         else
         {
-            // Si el objeto está activo y es lo que tenemos en la mano, lo soltamos y desaparecemos
             if (PlayerController.instance.CurrentGrab == instantiateSuperfice)
             {
-                // Forzamos el release en el player (debes tener un método similar o limpiar la ref)
                 PlayerController.instance.ClearCurrentGrabReference();
             }
 
@@ -134,18 +136,15 @@ public class ScreenPrintingManager : MonoBehaviour
 
     public void ToggleInkInHand()
     {
-        // REGLA: Si el objeto está tirado en el suelo, no puedes usar el botón del inventario
         if (instantiateInk == null || inkIsDropped) return;
 
         bool currentlyActive = instantiateInk.activeSelf;
 
         if (!currentlyActive)
         {
-            // REGLA: No permitir si la mano está ocupada
             if (PlayerController.instance.CurrentGrab != null)
             {
                 UIManager.instance.ShowWarningPanel(true, "Mano ocupada,  no puedes sacar la tinta.");
-                Debug.Log("Mano ocupada, no puedes sacar la tinta.");
                 return;
             }
 
@@ -153,7 +152,6 @@ public class ScreenPrintingManager : MonoBehaviour
             instantiateInk.transform.position = inkSpawnPoint.transform.position;
             instantiateInk.transform.rotation = inkSpawnPoint.transform.rotation;
 
-            // ACTIVAR EVENTO GRAB
             PlayerController.instance.HandleGrab(instantiateInk);
         }
         else
@@ -164,6 +162,38 @@ public class ScreenPrintingManager : MonoBehaviour
             }
 
             instantiateInk.SetActive(false);
+        }
+    }
+
+
+    public void ToggleFrameInHand()
+    {
+        if (instantiateFrame == null || frameIsDropped) return;
+
+        bool currentlyActive = instantiateFrame.activeSelf;
+
+        if (!currentlyActive)
+        {
+            if (PlayerController.instance.CurrentGrab != null)
+            {
+                UIManager.instance.ShowWarningPanel(true, "Mano ocupada, no puedes sacar el marco.");
+                return;
+            }
+
+            instantiateFrame.SetActive(true);
+            instantiateFrame.transform.position = inkSpawnPoint.transform.position;
+            instantiateFrame.transform.rotation = inkSpawnPoint.transform.rotation;
+
+            PlayerController.instance.HandleGrab(instantiateFrame);
+        }
+        else
+        {
+            if (PlayerController.instance.CurrentGrab == instantiateFrame)
+            {
+                PlayerController.instance.ClearCurrentGrabReference();
+            }
+
+            instantiateFrame.SetActive(false);
         }
     }
 
@@ -179,6 +209,11 @@ public class ScreenPrintingManager : MonoBehaviour
             inkIsDropped = true;
             UpdateScreens(screens.inkScreens, null); // Apaga la imagen en UI
         }
+        else if (obj == instantiateFrame)
+        {
+            frameIsDropped = true;
+            UpdateScreens(screens.frameScreens, null); // Apaga la imagen en UI
+        }
     }
 
     public void OnObjectPickedUp(GameObject obj)
@@ -192,6 +227,11 @@ public class ScreenPrintingManager : MonoBehaviour
         {
             inkIsDropped = false;
             UpdateScreens(screens.inkScreens, selectedInk); // Restaura imagen
+        }
+        else if (obj == instantiateFrame)
+        {
+            frameIsDropped = false;
+            UpdateScreens(screens.frameScreens, selectedFrame); // Apaga la imagen en UI
         }
     }
 
@@ -209,12 +249,32 @@ public class ScreenPrintingManager : MonoBehaviour
             return;
         }
 
+        // --- VALIDACIÓN DE MARCOS ---
+        if (material is Frame frameToCheck)
+        {
+            if (selectedPrintSurface == null)
+            {
+                UIManager.instance.ShowWarningPanel(true, "Selecciona primero un sustrato/superficie.");
+                return;
+            }
+
+            // Validación simplificada basada en el nombre de la superficie
+            if (!selectedPrintSurface.IsFrameCompatibleWithSurface(frameToCheck))
+            {
+                UIManager.instance.ShowWarningPanel(true, $"El marco de {frameToCheck.threadCount} hilos no es compatible con {selectedPrintSurface.materialName}.");
+                tourGuide.TriggerNPCEvent("Frame_Error");
+                string context = $"Intento de selección de marco: {frameToCheck.materialName}. Superficie actual: {(selectedPrintSurface != null ? selectedPrintSurface.materialName : "ninguna")}";
+                tourGuide.SendContext(context);
+                return;
+            }
+        }
+
+        // --- VALIDACIÓN DE TINTAS ---
         if (material is Ink inkToCheck)
         {
             if (selectedPrintSurface == null)
             {
                 UIManager.instance.ShowWarningPanel(true, "Selecciona primero un material");
-                tourGuide.TriggerNPCEvent("Missing_Printing_Surface");
                 UIManager.instance.UpdateScore(5);
                 return;
             }
@@ -222,7 +282,6 @@ public class ScreenPrintingManager : MonoBehaviour
             if (!selectedPrintSurface.IsCompatibleWith(inkToCheck))
             {
                 UIManager.instance.ShowWarningPanel(true, $"La tinta {inkToCheck.materialName} no es compatible con {selectedPrintSurface.materialName}.");
-                tourGuide.TriggerNPCEvent("Ink_Error");
                 string context = $"Intento de selección de tinta: {inkToCheck.materialName}. Superficie actual: {(selectedPrintSurface != null ? selectedPrintSurface.materialName : "ninguna")}";
                 tourGuide.SendContext(context);
                 UIManager.instance.UpdateScore(5);
@@ -259,6 +318,9 @@ public class ScreenPrintingManager : MonoBehaviour
 
         else if (pendingMaterial is PrintDesign design)
             SetSelectedMaterial(design, null, screens.designScreens, events.onSelectDesign);
+
+        else if (pendingMaterial is Frame sf)
+            SetSelectedMaterial(sf, inkSpawnPoint.transform, screens.frameScreens, events.onSelectFrame);
 
         if (instantiateSuperfice != null || instantiateInk != null)
         {
@@ -341,6 +403,11 @@ public class ScreenPrintingManager : MonoBehaviour
             Destroy(instantiateInk);
             instantiateInk = null;
         }
+        else if (material is Frame && instantiateFrame != null)
+        {
+            Destroy(instantiateFrame);
+            instantiateFrame = null;
+        }
     }
 
     private void SetSelectedMaterial<T>(T material, Transform spawnParent, List<MaterialScreen> screensToUpdate, UnityEvent unityEvents) where T : FabricMaterial
@@ -351,6 +418,7 @@ public class ScreenPrintingManager : MonoBehaviour
         if (material is PrintSurface ps) selectedPrintSurface = ps;
         if (material is Ink ink) selectedInk = ink;
         if (material is PrintDesign d) selectedDesign = d;
+        if (material is Frame frame) selectedFrame = frame;
 
         // 2. Limpiar lo que había antes
         ClearGrabbedObject();
@@ -365,7 +433,7 @@ public class ScreenPrintingManager : MonoBehaviour
             var inkComp = newObj.GetComponentInChildren<InkInstance>();
             if (inkComp != null && material is Ink selectedInkSO)
             {
-                instantiateInk = newObj; // ¡Ahora sí se guarda!
+                instantiateInk = newObj;
                 inkComp.SetInkData(selectedInkSO);
                 Debug.Log($"<color=green>Éxito:</color> Tinta {selectedInkSO.materialName} guardada en instancia.");
             }
@@ -373,9 +441,16 @@ public class ScreenPrintingManager : MonoBehaviour
             var surfaceComp = newObj.GetComponentInChildren<PrintSurfaceInstance>();
             if (surfaceComp != null && material is PrintSurface selectedSurfaceSO)
             {
-                instantiateSuperfice = newObj; // ¡Ahora sí se guarda!
+                instantiateSuperfice = newObj; 
                 surfaceComp.SetMaterial(surfaceComp.currentMaterial, selectedSurfaceSO);
                 Debug.Log($"<color=green>Éxito:</color> Superficie {selectedSurfaceSO.materialName} guardada en instancia.");
+            }
+
+            var frameComp = newObj.GetComponentInChildren<ScreenFrame>();
+            if (frameComp != null && material is Frame selectedFrameSO)
+            {
+                instantiateFrame = newObj;
+                Debug.Log($"<color=green>Éxito:</color> Marco físico de {selectedFrameSO.threadCount} hilos guardado en instancia.");
             }
         }
 

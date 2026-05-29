@@ -7,6 +7,7 @@ public class ScreenPrintingDatabase : ScriptableObject
 {
     public List<PrintSurface> printSurfaces = new List<PrintSurface>();
     public List<PrintDesign> designs = new List<PrintDesign>();
+    public List<Frame> screenFrames = new List<Frame>();
     public List<Ink> inks = new List<Ink>();
 
     public FabricMaterial GetMaterialByName(string name)
@@ -35,7 +36,13 @@ public class ScreenPrintingDatabase : ScriptableObject
                 return design;
         }
 
+        foreach (Frame frame in screenFrames)
+        {
+            if (frame != null && frame.materialName.Equals(name, StringComparison.OrdinalIgnoreCase))
+                return frame;
+        }
+
         Debug.LogWarning($"Material {name} no encontrado.");
         return null;
     }
-} 
+}

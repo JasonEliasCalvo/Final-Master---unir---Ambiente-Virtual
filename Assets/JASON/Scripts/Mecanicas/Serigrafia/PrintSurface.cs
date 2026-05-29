@@ -5,27 +5,41 @@ using UnityEngine;
 public class PrintSurface : FabricMaterial
 {
     [SerializeField] private List<InkType> compatibleInks = new List<InkType>();
-    private HashSet<InkType> _compatibleSet;
+    [SerializeField] private List<Frame> compatibleFrames = new List<Frame>();
+    private HashSet<InkType> _compatibleInksSet;
+    private HashSet<Frame> _compatibleFramesSet;
 
     private void EnsureHashSet()
     {
-        if (_compatibleSet == null)
-            _compatibleSet = new HashSet<InkType>(compatibleInks ?? new List<InkType>());
+        if(_compatibleInksSet == null)
+            _compatibleInksSet = new HashSet<InkType>(compatibleInks ?? new List<InkType>());
+
+        if (_compatibleFramesSet == null)
+            _compatibleFramesSet = new HashSet<Frame>(compatibleFrames ?? new List<Frame>());
     }
 
     public bool IsCompatibleWith(Ink ink)
     {
         if (ink == null) return false;
         EnsureHashSet();
-        return _compatibleSet.Contains(ink.inkType);
+        return _compatibleInksSet.Contains(ink.inkType);
+    }
+
+    public bool IsFrameCompatibleWithSurface(Frame frame)
+    {
+        if (frame == null) return false;
+        EnsureHashSet();
+
+        // Validación directa por referencia O(1) basada estrictamente en la lista del inspector
+        return _compatibleFramesSet.Contains(frame);
     }
 
     public string GetCompatibilityDescription()
     {
         EnsureHashSet();
-        if (_compatibleSet == null || _compatibleSet.Count == 0)
+        if (_compatibleInksSet == null || _compatibleInksSet.Count == 0)
             return "No tiene tintas compatibles definidas.";
 
-        return "Tintas compatibles: " + string.Join(", ", _compatibleSet);
+        return "Tintas compatibles: " + string.Join(", ", _compatibleInksSet);
     }
 }

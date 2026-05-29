@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b7019ea83ab9c46a7b9dd3696e8f40, type: 3}
+  m_Name: Vinilo
+  m_EditorClassIdentifier: 
+  materialName: Disco
+  materialDescription: Es un disco de vinilo
+  materialIcon: {fileID: 21300000, guid: 1c57beb8c7ac8bc47afe5de366f53cff, type: 3}
+  materialPrefab: {fileID: 4758886257678607690, guid: 288f6089fb392f849b7129f62bb48140, type: 3}
+  compatibleInks: 01000000
+  compatibleFrames:
+  - {fileID: 11400000, guid: ade4ef3f781279544ae79a2d3fc34e28, type: 2}

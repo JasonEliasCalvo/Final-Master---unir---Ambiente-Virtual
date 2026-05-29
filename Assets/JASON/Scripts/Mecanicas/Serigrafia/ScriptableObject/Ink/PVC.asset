@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22a9257cc84ac4946a6ab04517631380, type: 3}
-  m_Name: Plastisol
+  m_Name: PVC
   m_EditorClassIdentifier: 
-  materialName: Plastisol
-  materialDescription: 'es  pintura de plastisol
+  materialName: PVC
+  materialDescription: 'es pintura de PVC
 
 '
-  materialIcon: {fileID: 21300000, guid: 8ad380795ae93464789fe9c38f4029ba, type: 3}
+  materialIcon: {fileID: 21300000, guid: 713bc43f43097ff4ca2a427553c621d5, type: 3}
   materialPrefab: {fileID: 3043805426427183651, guid: 6b13c4a60c5bb9b4288413ded75033ac, type: 3}
-  inkType: 2
+  inkType: 1
   color: {r: 0, g: 0, b: 0, a: 0}

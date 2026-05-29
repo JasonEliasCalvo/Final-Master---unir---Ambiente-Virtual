@@ -16,4 +16,6 @@ MonoBehaviour:
   materialDescription: Es una camisa hecha de algodon
   materialIcon: {fileID: 21300000, guid: 4994cee74c463d142a2e39cbf09a3ca8, type: 3}
   materialPrefab: {fileID: 6517312451422890640, guid: 01f8f9273749d3b41b947ce958eb649f, type: 3}
-  compatibleInks: 02000000
+  compatibleInks: 00000000
+  compatibleFrames:
+  - {fileID: 11400000, guid: 187974cfbdf8f5544b7bcb89233bfe8a, type: 2}

@@ -7,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class ScreenFrame : MonoBehaviour
 {
     private Ink currentInk;
+    public Frame frameData;
     public GameObject _renderer;
     public Squeegee squeegeeObj;
     public CustomizedGrab xRGrab;

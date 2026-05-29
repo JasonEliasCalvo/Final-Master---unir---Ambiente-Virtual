@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ab0c1581a8ca34385cb8a037cd2ac9, type: 3}
+  m_Name: 120 Hilos
+  m_EditorClassIdentifier: 
+  materialName: 120 Hilos
+  materialDescription: Marco de 120 Hilos
+  materialIcon: {fileID: 21300000, guid: 0731b67bc29f6fc43a4ff100abc45e8f, type: 3}
+  materialPrefab: {fileID: 8365744877831850080, guid: 4ad9c96a179a6de4ea5be1e5cfcb3d4a, type: 3}
+  threadCount: 120
+  type: 0

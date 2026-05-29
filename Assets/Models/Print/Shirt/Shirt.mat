@@ -76,6 +76,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _EmisionMap:
+        m_Texture: {fileID: 2800000, guid: 4402a9ab315c7f24cb9bad5f6669f111, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -114,6 +118,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Alpha: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -154,15 +159,18 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 0
+    - _emison: 0
     m_Colors:
     - _1: {r: 1.03, g: 1, b: 0, a: 0}
     - _2: {r: -1.05, g: 0.48, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _EmisionForce: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _InkColor: {r: 0.27044016, g: 0.27044016, b: 0.27044016, a: 0}
     - _Lerp: {r: 1, g: 1, b: 1, a: 1}
     - _Offset: {r: -1.1, g: -0.44, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Specular: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 4, g: 4, b: 0, a: 0}
   m_BuildTextureStacks: []

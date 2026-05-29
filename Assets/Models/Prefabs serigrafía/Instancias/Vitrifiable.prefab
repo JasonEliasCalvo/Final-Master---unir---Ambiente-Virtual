@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8058766837340896274}
   - component: {fileID: 5274713062451179017}
   m_Layer: 6
-  m_Name: UV
+  m_Name: Vitrifiable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d91beffe209bc40886ee53926f1f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkData: {fileID: 11400000, guid: f90d47e0153c25a47a92e06f744c935f, type: 2}
+  inkData: {fileID: 11400000, guid: 0261d7d2976248a4ab319e6dec017b2b, type: 2}
 --- !u!114 &8058766837340896274
 MonoBehaviour:
   m_ObjectHideFlags: 0

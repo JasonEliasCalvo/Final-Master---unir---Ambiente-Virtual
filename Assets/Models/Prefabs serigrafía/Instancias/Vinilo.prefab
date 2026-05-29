@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -2062339677790374669}
   - component: {fileID: 5257650520216661417}
   m_Layer: 6
-  m_Name: Papel (1)
+  m_Name: Vinilo
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

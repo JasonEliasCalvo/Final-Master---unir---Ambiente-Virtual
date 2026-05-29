@@ -16,5 +16,9 @@ public class PlayerInventoryController : MonoBehaviour
         {
             ScreenPrintingManager.instance.ToggleInkInHand();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            ScreenPrintingManager.instance.ToggleFrameInHand();
+        }
     }
 }

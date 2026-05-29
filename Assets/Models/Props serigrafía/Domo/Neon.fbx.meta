@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: 079f5ba2e01fa9540a248e7d928b4a1e
+guid: 94dd8cf344d13d649afd98af7f6a5e87
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Color base domo.002
-    second: {fileID: 2100000, guid: f8c255057666fad43a6dc0a5bbf89780, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material vidrio espejo.001
-    second: {fileID: 2100000, guid: 9591e2dd04f24764f8940962d5dbe6a5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Suelo.001
-    second: {fileID: 2100000, guid: 585ef63299b2e014ebc64a3a3c97c811, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ventanas.001
-    second: {fileID: 2100000, guid: 792ffcf90d1eee642a0e54ed0bd2ea2e, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b7019ea83ab9c46a7b9dd3696e8f40, type: 3}
+  m_Name: Vitrifiable
+  m_EditorClassIdentifier: 
+  materialName: Vitrifiable
+  materialDescription: Es Vitrifiable
+  materialIcon: {fileID: 21300000, guid: 32a9a2b1969be75418e153a45b32f561, type: 3}
+  materialPrefab: {fileID: 4173358783106259156, guid: 14d20133a67e050429330f87ddca3ea2, type: 3}
+  compatibleInks: 02000000
+  compatibleFrames:
+  - {fileID: 11400000, guid: 64db26d1f302b064e808477455046a0b, type: 2}
