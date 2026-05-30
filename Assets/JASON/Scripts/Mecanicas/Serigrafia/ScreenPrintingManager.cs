@@ -262,7 +262,6 @@ public class ScreenPrintingManager : MonoBehaviour
             if (!selectedPrintSurface.IsFrameCompatibleWithSurface(frameToCheck))
             {
                 UIManager.instance.ShowWarningPanel(true, $"El marco de {frameToCheck.threadCount} hilos no es compatible con {selectedPrintSurface.materialName}.");
-                tourGuide.TriggerNPCEvent("Frame_Error");
                 string context = $"Intento de selección de marco: {frameToCheck.materialName}. Superficie actual: {(selectedPrintSurface != null ? selectedPrintSurface.materialName : "ninguna")}";
                 tourGuide.SendContext(context);
                 return;
@@ -346,6 +345,7 @@ public class ScreenPrintingManager : MonoBehaviour
         string context = $"Simulación Inicianda con {selectedPrintSurface.materialName}, tinta {selectedInk.materialName}, diseño {selectedDesign.materialName}";
         Debug.Log(context);
         tourGuide.SendContext(context);
+        tourGuide.TriggerNPCEvent("Final_Trigger");
         InvokeEvents(events.onEndSimulation);
     }
 

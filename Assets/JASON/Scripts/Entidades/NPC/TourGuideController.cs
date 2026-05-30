@@ -38,7 +38,8 @@ public class TourGuideController : MonoBehaviour
 
     public void TriggerNPCEvent(string trigger)
     {
-        return;
+        return; // Temporal, para evitar que se interrumpa el audio al activar los triggers. Quitar cuando se implementen los triggers correctamente en el timeline
+
         if (convaiNPC == null) return;
 
         ConvaiNPCManager.Instance.SetActiveConvaiNPC(convaiNPC);
@@ -68,8 +69,7 @@ public class TourGuideController : MonoBehaviour
 
     public void SendContext(string context)
     {
-        return;
-
+        return; // Temporal, para evitar que se interrumpa el audio al enviar el contexto. Quitar cuando se implemente el contexto correctamente en el timeline
         if (convaiNPC == null) return;
         if (convaiNPC.isCharacterTalking)
         {

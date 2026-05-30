@@ -3629,7 +3629,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Presiona 1 y 2 para sacar o guardar elementos de tu inventario
+  m_text: Presiona 1, 2 y 3 para sacar o guardar elementos de tu inventario
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d1e46c46c32fdc644acb0bd9412b2248, type: 2}
   m_sharedMaterial: {fileID: 8173872399299848396, guid: d1e46c46c32fdc644acb0bd9412b2248, type: 2}
@@ -4378,7 +4378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 941226927864358221, guid: 3b012925bd1692e42959079f8410530f, type: 3}
       propertyPath: m_Name
-      value: Inventario
+      value: Tutorial
       objectReference: {fileID: 0}
     - target: {fileID: 941226927864358221, guid: 3b012925bd1692e42959079f8410530f, type: 3}
       propertyPath: m_IsActive
@@ -4442,7 +4442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5482319230725883301, guid: 3b012925bd1692e42959079f8410530f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5482319230725883301, guid: 3b012925bd1692e42959079f8410530f, type: 3}
       propertyPath: m_AnchorMin.x
@@ -4450,7 +4450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5482319230725883301, guid: 3b012925bd1692e42959079f8410530f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5482319230725883301, guid: 3b012925bd1692e42959079f8410530f, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4506,7 +4506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5482319230725883301, guid: 3b012925bd1692e42959079f8410530f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 228
+      value: -312
       objectReference: {fileID: 0}
     - target: {fileID: 5482319230725883301, guid: 3b012925bd1692e42959079f8410530f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5232,9 +5232,7 @@ RectTransform:
   - {fileID: 771223587}
   - {fileID: 49221302}
   - {fileID: 1511705570}
-  - {fileID: 959384431}
-  - {fileID: 1673486693}
-  - {fileID: 1464061135}
+  - {fileID: 1104406756}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5309,23 +5307,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   convaiNPC: {fileID: 2110987337}
-  selectedTriggerIndex: 13
+  selectedTriggerIndex: 0
   availableTriggers:
-  - Octopus_Trigger
-  - Security_Trigger
-  - Manual_Screen_Printing_Table_Trigger
-  - Control_Center_Trigger
-  - Ink_Error
-  - UV_Curer_Trigger
-  - Printing_Surface_Trigger
-  - Tensioning_table_Trigger
-  - Ink_Zone_Trigger
-  - Developing_Room_Trigger
-  - Screen_Printing_Tirgger
-  - Missing_Printing_Surface
-  - Ink_Trigger
   - Welcome_Trigger
-  - Desing_trigger
+  - Final_Trigger
   onTriggerEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5847,18 +5832,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959384430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 682508682}
   - {fileID: 159610080}
-  m_Father: {fileID: 895614575}
+  m_Father: {fileID: 1104406756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -206, y: 834}
+  m_AnchoredPosition: {x: -65.80005, y: 367.15234}
   m_SizeDelta: {x: 131.59998, y: 124.30481}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &959384432
@@ -6733,6 +6718,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1104406755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1104406756}
+  m_Layer: 5
+  m_Name: Invantario
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1104406756
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104406755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 959384431}
+  - {fileID: 1673486693}
+  - {fileID: 1464061135}
+  m_Father: {fileID: 895614575}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -206, y: 0}
+  m_SizeDelta: {x: 131.59998, y: 429.3048}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1107584769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8475,18 +8498,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464061134}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 527021711}
   - {fileID: 1347020129}
-  m_Father: {fileID: 895614575}
+  m_Father: {fileID: 1104406756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -206, y: 529}
+  m_AnchoredPosition: {x: -65.80005, y: 62.152405}
   m_SizeDelta: {x: 131.59998, y: 124.30481}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1464061136
@@ -9381,18 +9404,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673486692}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1577970793}
   - {fileID: 1670429389}
-  m_Father: {fileID: 895614575}
+  m_Father: {fileID: 1104406756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -206, y: 682}
+  m_AnchoredPosition: {x: -65.80005, y: 215.15234}
   m_SizeDelta: {x: 131.59998, y: 124.30481}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1673486694
@@ -11262,318 +11285,54 @@ MonoBehaviour:
     onSectionEnd:
       m_PersistentCalls:
         m_Calls: []
+  - id: 97da9870-5bcc-11f1-afda-42010a7be02e
+    onSectionStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSectionEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - id: 187ed036-5bcd-11f1-91b8-42010a7be02e
+    onSectionStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSectionEnd:
+      m_PersistentCalls:
+        m_Calls: []
   sectionDataList:
-  - sectionId: 5919633c-a083-11f0-a1a9-42010a7be025
-    sectionName: Zona mesas
-    behaviorTreeConstants: 
-    objective: "Explicar el \xE1rea de serigrafia y su importancia con el siguiente
-      dialogo, adem\xE1s al terminar el dialogo pregunta a el aprendiz si quiere
-      continuar el recorrido.\n\nEn esta \xE1rea, los aprendices adquieren las bases
-      te\xF3ricas\u2013pr\xE1cticas de la serigraf\xEDa.\n\nAqu\xED comenzamos con
-      la preparaci\xF3n de la pantalla de impresi\xF3n, continuamos con el desarrollo
-      creativo del dise\xF1o y la separaci\xF3n de colores mediante el uso de software
-      especializado.\nTambi\xE9n exploraremos los tipos de tintas y sustratos, el
-      manejo adecuado de las herramientas y la aplicaci\xF3n de los elementos de
-      seguridad industrial, fundamentales en cada proceso.\nCada uno de estos componentes
-      se integra para lograr un producto final preciso, funcional y de alta calidad,
-      cumpliendo con las exigencias tanto del cliente como del entorno productivo.\n\nExplica
-      el espacio de aprendizaje y lo que hacen los alumnos. "
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - sectionId: eaa56682-a3aa-11f0-8540-42010a7be025
-    sectionName: Curadora UV
-    behaviorTreeConstants: 
-    objective: "Explicar la maquina de curado UV y caracter\xEDsticas con el siguiente
-      dialogo, adem\xE1s al terminar el dialogo pregunta a el aprendiz si quiere
-      continuar el recorrido.\n\nEsta es la m\xE1quina de secado ultravioleta, tambi\xE9n
-      conocida como unidad de \ncurado UV.\nSu funci\xF3n principal es curar o fijar
-      las tintas UV mediante la exposici\xF3n a radiaci\xF3n ultravioleta.\nA diferencia
-      del secado tradicional por calor, este sistema utiliza luz de alta intensidad
-      para provocar una reacci\xF3n qu\xEDmica de polimerizaci\xF3n, donde las mol\xE9culas
-      de la tinta se enlazan entre s\xED, logrando un secado instant\xE1neo y una
-      excelente adherencia sobre el sustrato.\nEste equipo est\xE1 dise\xF1ado exclusivamente
-      para tintas UV y tambi\xE9n se utiliza para aplicar barnices UV, que act\xFAan
-      como una capa protectora.\nEl resultado es un acabado brillante, resistente
-      y de alta calidad, similar a un plastificado, que mejora tanto la apariencia
-      como la durabilidad del producto final."
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - sectionId: 937bb7c4-a3c0-11f0-8540-42010a7be025
-    sectionName: Cuarto de revelado
-    behaviorTreeConstants: 
-    objective: "Explicar Mesa de serigrafia manual y caracter\xEDsticas con el siguiente
-      dialogo, adem\xE1s al terminar el dialogo pregunta a el aprendiz si quiere
-      continuar el recorrido.\n\nEn este espacio se realiza uno de los pasos m\xE1s
-      importantes de la serigraf\xEDa: el revelado y recuperaci\xF3n de pantallas.\nAqu\xED
-      preparamos los marcos con emulsi\xF3n, creamos la imagen del dise\xF1o y dejamos
-      lista la pantalla para imprimir.\nPrimero, revisamos que el marco est\xE9 limpio
-      y desengrasado. Esto garantiza que la emulsi\xF3n se adhiera correctamente.\nLuego
-      aplicamos la emulsi\xF3n fotosensible tipo diazo de manera uniforme con la
-      raedera, por ambos lados del marco.\nDespu\xE9s dejamos secar la pantalla en
-      posici\xF3n horizontal, en un lugar oscuro y sin polvo.\nMientras tanto, preparamos
-      el positivo del dise\xF1o, que es una impresi\xF3n en negro sobre acetato o
-      papel transparente.\nCuando la emulsi\xF3n est\xE9 completamente seca, colocamos
-      el positivo sobre la pantalla, asegur\xE1ndonos de que quede bien centrado
-      y en contacto con la emulsi\xF3n.\nA continuaci\xF3n, exponemos la pantalla
-      a la luz del revelado durante el tiempo adecuado.\nLa luz endurece las partes
-      cubiertas por la emulsi\xF3n, y las zonas tapadas por el dise\xF1o permanecen
-      suaves.\nDespu\xE9s de la exposici\xF3n, llevamos la pantalla al lavado con
-      agua a presi\xF3n: ah\xED aparecer\xE1 el dise\xF1o, dejando libres las zonas
-      por donde pasar\xE1 la tinta.\nUna vez revelada, sellamos los bordes con cinta
-      o sellador para evitar filtraciones de tinta durante la impresi\xF3n.\nCuando
-      la pantalla ya no se necesita o hay que reutilizarla, se realiza la recuperaci\xF3n:\nAplicamos
-      un removedor de emulsi\xF3n, dejamos actuar unos minutos y enjuagamos con agua
-      a presi\xF3n hasta que el marco quede completamente limpio y listo para volver
-      a emulsionar.\nEl \xE9xito del revelado depende de tres cosas: limpieza, tiempo
-      de exposici\xF3n y secado adecuado."
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - sectionId: 1f35e9e2-8738-11f0-a70c-42010a7be01f
-    sectionName: Pulpo de serigrafia
-    behaviorTreeConstants: 
-    objective: "Explicar el proceso de serigraf\xEDa en pulpo de serigrafia y su
-      importancia con el siguiente dialogo, adem\xE1s al terminar el dialogo pregunta
-      a el aprendiz si quiere terminar el recorrido.\n\nEn este espacio se realiza
-      uno de los pasos m\xE1s importantes de la serigraf\xEDa: el revelado y recuperaci\xF3n
-      de pantallas.\nAqu\xED preparamos los marcos con emulsi\xF3n, creamos la imagen
-      del dise\xF1o y dejamos lista la pantalla para imprimir.\nPrimero, revisamos
-      que el marco est\xE9 limpio y desengrasado. Esto garantiza que la emulsi\xF3n
-      se adhiera correctamente.\nLuego aplicamos la emulsi\xF3n fotosensible tipo
-      diazo de manera uniforme con la raedera, por ambos lados del marco.\nDespu\xE9s
-      dejamos secar la pantalla en posici\xF3n horizontal, en un lugar oscuro y sin
-      polvo.\nMientras tanto, preparamos el positivo del dise\xF1o, que es una impresi\xF3n
-      en negro sobre acetato o papel transparente.\nCuando la emulsi\xF3n est\xE9
-      completamente seca, colocamos el positivo sobre la pantalla, asegur\xE1ndonos
-      de que quede bien centrado y en contacto con la emulsi\xF3n.\nA continuaci\xF3n,
-      exponemos la pantalla a la luz del revelado durante el tiempo adecuado.\nLa
-      luz endurece las partes cubiertas por la emulsi\xF3n, y las zonas tapadas por
-      el dise\xF1o permanecen suaves.\nDespu\xE9s de la exposici\xF3n, llevamos la
-      pantalla al lavado con agua a presi\xF3n: ah\xED aparecer\xE1 el dise\xF1o,
-      dejando libres las zonas por donde pasar\xE1 la tinta.\nUna vez revelada, sellamos
-      los bordes con cinta o sellador para evitar filtraciones de tinta durante la
-      impresi\xF3n.\nCuando la pantalla ya no se necesita o hay que reutilizarla,
-      se realiza la recuperaci\xF3n:\nAplicamos un removedor de emulsi\xF3n, dejamos
-      actuar unos minutos y enjuagamos con agua a presi\xF3n hasta que el marco quede
-      completamente limpio y listo para volver a emulsionar.\nExisten tambi\xE9n
-      pulpos con m\xE1s brazos y pulpos autom\xE1ticos, usados en producciones de
-      gran volumen, donde el proceso se controla de manera mec\xE1nica para obtener
-      mayor rapidez y exactitud.\nEl \xE9xito del revelado depende de tres cosas:
-      limpieza, tiempo de exposici\xF3n y secado adecuado."
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - sectionId: eb29dfae-a3bc-11f0-acb7-42010a7be025
-    sectionName: Centro de control
-    behaviorTreeConstants: 
-    objective: "Explicar centro de control y caracter\xEDsticas con el siguiente
-      dialogo, adem\xE1s al terminar el dialogo pregunta a el aprendiz si quiere
-      continuar el recorrido.\n\nBienvenido al Centro de Control.\nAqu\xED podr\xE1s
-      elegir el sustrato con el que iniciar\xE1s tu proceso de impresi\xF3n serigr\xE1fica.\nEn
-      esta mesa encontrar\xE1s tres materiales principales, cada uno con caracter\xEDsticas
-      y requerimientos t\xE9cnicos diferentes.\nDeber\xE1s seleccionar uno y seguir
-      mis indicaciones paso a paso para lograr una impresi\xF3n exitosa y de calidad.\nEl
-      primero es una prenda en algod\xF3n, ideal para practicar con tintas base agua
-      o plastisol, seg\xFAn el tipo de acabado que busques.\nEl segundo es un papel
-      propalcote de 100 gramos, recomendado para tintas UV, gracias a su superficie
-      lisa y recubierta que permite un curado r\xE1pido, brillante y de alta definici\xF3n.\nY
-      finalmente, tenemos una bolsa de tela, perfecta para trabajar con tintas base
-      agua.\nEste tipo de tinta ofrece un acabado suave al tacto, buena resistencia
-      al lavado y es ideal para fibras naturales como algod\xF3n o lona.\nSolo recuerda
-      que debe ser termofijada entre 180 y 200 \xB0C para asegurar su correcta adherencia
-      y durabilidad"
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - sectionId: 62f98d72-a3c2-11f0-8464-42010a7be025
-    sectionName: Seguridad y cuidados de serigrafia
-    behaviorTreeConstants: 
-    objective: "Explica las precauciones que debemos tener y peligros que pueden
-      ocurrir en el \xE1rea de serigrafia con el siguiente dialogo, adem\xE1s al
-      terminar el dialogo pregunta a el aprendiz si quiere continuar el recorrido.\n\nAntes
-      de iniciar cualquier proceso, es importante recordar las normas de seguridad
-      y cuidado del ambiente de trabajo.\nEn este espacio encontrar\xE1s dos canecas
-      de disposici\xF3n:\n\uF0B7Una para residuos comunes, como papel o trapos limpios.\nY
-      otra para residuos contaminados, donde deben depositarse materiales con disolventes,
-      tintas o productos qu\xEDmicos.\nRecuerda que mantener el \xE1rea limpia evita
-      accidentes y contaminaci\xF3n.\nTambi\xE9n es obligatorio el uso de elementos
-      de protecci\xF3n personal:\nOverol o bata, para evitar el contacto directo
-      con tintas y emulsiones.\nGuantes, al manipular qu\xEDmicos o limpiar herramientas.\nTapabocas
-      o respirador, especialmente en zonas cerradas o con vapores.\nY gafas de protecci\xF3n,
-      durante el revelado o uso de disolventes.\nLa seguridad es parte del aprendizaje:
-      cuidar el espacio y protegerse garantiza un trabajo profesional y responsable."
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - sectionId: bbca2ed4-a3bd-11f0-b0e5-42010a7be025
-    sectionName: Zona de tintas
-    behaviorTreeConstants: 
-    objective: "Explicar la tinta y caracter\xEDsticas  con el siguiente dialogo,
-      adem\xE1s al terminar el dialogo pregunta a el aprendiz si quiere continuar
-      el recorrido.\nEn esta estaci\xF3n conocer\xE1s los principales tipos de tintas
-      empleadas en el \nproceso serigr\xE1fico.\nCada una tiene caracter\xEDsticas
-      espec\xEDficas seg\xFAn el tipo de sustrato, la t\xE9cnica de impresi\xF3n
-      y el acabado deseado.\nComencemos con las tintas UV.\nEstas tintas est\xE1n
-      formuladas para sustratos no porosos, como pl\xE1sticos, acr\xEDlicos, vidrios
-      o metales.\nSu secado se realiza mediante luz ultravioleta, que produce una
-      reacci\xF3n de curado instant\xE1neo.\nTambi\xE9n se aplican en barnices UV,
-      que brindan un acabado brillante o plastificado al producto final, mejorando
-      su durabilidad y apariencia.\nLuego tenemos las tintas plastisol, ampliamente
-      utilizadas en la impresi\xF3n textil.\nEstas no se secan al aire, sino que
-      requieren calor controlado entre 150 y 170 \xB0C para su fijaci\xF3n.\nExisten
-      versiones con efectos especiales: tintas de alto relieve, termo crom\xE1ticas
-      \u2014que cambian de color con la temperatura\u2014 o con brillos y texturas
-      particulares, ideales para acabados creativos.\nPor \xFAltimo, las tintas base
-      agua.\nSon m\xE1s econ\xF3micas y ecol\xF3gicas, recomendadas para textiles
-      de algod\xF3n y algunas mezclas sint\xE9ticas.\nSin embargo, necesitan aditivos
-      para mejorar su adherencia y deben ser termo fijadas entre 180 y 200 \xB0C
-      para lograr un curado completo.\nEn nuestro pa\xEDs a\xFAn no se exploran todas
-      las posibilidades que ofrece la serigraf\xEDa a nivel de tintas y efectos,
-      pero aqu\xED te motivamos a experimentar y crear tus propias combinaciones,
-      llevando este arte a un nuevo nivel."
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - sectionId: f734fb18-a3b6-11f0-8689-42010a7be025
-    sectionName: Mesa de tensado
-    behaviorTreeConstants: 
-    objective: "Explicar la zona de tensado y caracter\xEDsticas  con el siguiente
-      dialogo, adem\xE1s al terminar el dialogo pregunta a el aprendiz si quiere
-      continuar el recorrido.\n\nEn esta zona realizamos el tensado de las pantallas,
-      un paso fundamental para lograr impresiones precisas y uniformes.\nEl proceso
-      inicia con la limpieza del marco, asegur\xE1ndonos de que no tenga residuos
-      ni grasa.\nLuego colocamos la malla de poli\xE9ster sobre el marco, procurando
-      que quede bien centrada.\nCon ayuda del sistema de tensado manual o neum\xE1tico,
-      estiramos la malla de forma pareja en todos los lados.\nEs importante mantener
-      la misma tensi\xF3n en toda la superficie para evitar deformaciones en la impresi\xF3n.\nUna
-      vez alcanzada la tensi\xF3n ideal, la fijamos al marco aplicando pegante especial
-      para serigraf\xEDa.\nDespu\xE9s, dejamos secar completamente el pegante antes
-      de cortar el exceso de malla.\nFinalmente, verificamos que la pantalla no tenga
-      arrugas ni zonas flojas.\nUn buen tensado garantiza una correcta aplicaci\xF3n
-      de la tinta y una imagen n\xEDtida durante el estampado."
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - sectionId: ad9d90ce-a3bf-11f0-8540-42010a7be025
-    sectionName: Mesa de serigrafia manual
-    behaviorTreeConstants: 
-    objective: "Explicar mesa de serigrafia manual y caracter\xEDsticas  con el siguiente
-      dialogo, adem\xE1s al terminar el dialogo pregunta a el aprendiz si quiere
-      continuar el recorrido.\n\nEn este espacio encontrar\xE1s cuatro estaciones
-      de estampado manual, cada una con un solo brazo para montar una pantalla de
-      impresi\xF3n.\n\nAqu\xED podr\xE1s realizar tu estampado de manera artesanal,
-      paso a paso, aplicando uno o varios colores seg\xFAn tu dise\xF1o.\nPrimero,
-      asegura la pantalla en la prensa y revisa que tenga buena tensi\xF3n.\n\nColoca
-      el material sobre la base, aplica adhesivo para evitar movimientos y verifica
-      la alineaci\xF3n del dise\xF1o.\n\nCon la rasqueta, extiende la tinta de forma
-      uniforme y realiza la pasada de impresi\xF3n manteniendo la presi\xF3n constante.\n\nSi
-      tu dise\xF1o tiene varios colores, cambia la pantalla y usa las marcas de registro
-      para que cada color quede en el lugar correcto.\nUn buen registro garantiza
-      un estampado coordinado y limpio.\nAl finalizar, seca o cura la tinta seg\xFAn
-      el tipo que est\xE9s usando:\n\nBase agua: entre 180 y 200 grados.\nPlastisol:
-      entre 150 y 170 grados.\nUV: unidad de curado UV\n\nRecuerda limpiar las herramientas
-      despu\xE9s de cada uso y mantener el \xE1rea ordenada.\n\nCon pr\xE1ctica y
-      precisi\xF3n, lograr\xE1s resultados profesionales incluso en procesos manuales."
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - sectionId: 385032fc-8738-11f0-baa0-42010a7be01f
-    sectionName: Proceso completo
-    behaviorTreeConstants: 
-    objective: Agradece por completar el proceso
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - sectionId: 4237e638-8734-11f0-802f-42010a7be01f
+  - sectionId: 97da9870-5bcc-11f1-afda-42010a7be02e
     sectionName: Bienvenida
     behaviorTreeConstants: 
-    objective: "\xA1Buenos d\xEDas, Aprendiz!\nBienvenido al Ambiente Virtual de
-      Serigraf\xEDa del Centro para la Industria de la Comunicaci\xF3n Gr\xE1fica.\nMi
-      nombre es Ricardo Caicedo, y ser\xE9 tu gu\xEDa durante este recorrido.\nAqu\xED
-      exploraremos juntos el fascinante mundo de la serigraf\xEDa: su historia, sus
-      fundamentos t\xE9cnicos y los procesos pr\xE1cticos que la hacen posible.\nTe
-      acompa\xF1ar\xE9 paso a paso para que comprendas c\xF3mo esta t\xE9cnica combina
-      arte, precisi\xF3n y oficio \u2014 una mezcla perfecta entre creatividad y
-      producci\xF3n.\nAl finalizar este recorrido, contar\xE1s con las bases necesarias
-      para aplicar estos conocimientos en entornos industriales o incluso en tu propio
-      emprendimiento.\nPrep\xE1rate para aprender, experimentar y descubrir todo
-      lo que la serigraf\xEDa tiene para ofrecerte.\n\xBFListo para comenzar?"
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
+    objective: "Say this paragraph to the user:\n\"\xA1Hola, Aprendiz! Soy Ricardo
+      Caicedo, tu gu\xEDa en este Ambiente Virtual de Serigraf\xEDa. Estoy aqu\xED
+      para ayudarte a dominar el oficio y conectar la creatividad con la producci\xF3n.\"\n\nIf
+      the user response is not an answer or relevant to mastering screen printing,
+      then answer the user question and ask if the user is ready to begin learning
+      about the production process."
+    characterId: c00dd506-5ba3-11f1-be66-42010a7be02e
+  - sectionId: 187ed036-5bcd-11f1-91b8-42010a7be02e
+    sectionName: Despedida
+    behaviorTreeConstants: 
+    objective: "\"Excelente trabajo, Aprendiz. Has completado el recorrido por el
+      proceso de serigraf\xEDa con \xE9xito. Recuerda que la precisi\xF3n en el taller
+      es la clave de una buena producci\xF3n. \xA1Hasta la pr\xF3xima!\"\n\nIf the
+      user responds with further questions, briefly answer them in a concise, pedagogical
+      manner and remind them that the session has concluded successfully."
+    characterId: c00dd506-5ba3-11f1-be66-42010a7be02e
   triggerDataList:
-  - triggerId: e123abfe-8759-11f0-8e4a-42010a7be01f
-    triggerName: Octopus_Trigger
-    triggerMessage: "Est\xE1s en el \xE1rea del pulpo para serigraf\xEDa, y has empezado
-      el proceso (Impresi\xF3n)."
-    destinationSection: 1f35e9e2-8738-11f0-a70c-42010a7be01f
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: 34d03b9a-a3c1-11f0-9199-42010a7be025
-    triggerName: Security_Trigger
-    triggerMessage: "Est\xE1s en el \xE1rea de aprendizaje(seguridad y cuidados de
-      serigrafia) ."
-    destinationSection: 62f98d72-a3c2-11f0-8464-42010a7be025
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: 4031bfec-a3bf-11f0-8045-42010a7be025
-    triggerName: Manual_Screen_Printing_Table_Trigger
-    triggerMessage: "Est\xE1s en el \xE1rea de aprendizaje(Mesa de serigrafia manual)
-      ."
-    destinationSection: ad9d90ce-a3bf-11f0-8540-42010a7be025
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: 7c9e7a9a-a3bc-11f0-b538-42010a7be025
-    triggerName: Control_Center_Trigger
-    triggerMessage: "Est\xE1s en el \xE1rea de aprendizaje(Mesa de tensado) ."
-    destinationSection: eb29dfae-a3bc-11f0-acb7-42010a7be025
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: 98014314-8759-11f0-853c-42010a7be01f
-    triggerName: Ink_Error
-    triggerMessage: "Est\xE1s en el \xE1rea de selecci\xF3n de elementos de serigraf\xEDa,
-      y has fallado en una parte del proceso (Seleccionar tinta).\n\nExplique el
-      error al elegir la tinta compatible y qu\xE9 tinta ser\xEDa compatible con
-      la superficie de impresi\xF3n que eligi\xF3 antes."
-    destinationSection: 29bedf0e-8738-11f0-a70c-42010a7be01f
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: b8d0c6a6-a3aa-11f0-adc2-42010a7be025
-    triggerName: UV_Curer_Trigger
-    triggerMessage: "Est\xE1s en el \xE1rea de aprendizaje(Maquina de curado UV)
-      ."
-    destinationSection: eaa56682-a3aa-11f0-8540-42010a7be025
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: 412ed094-a3a9-11f0-8b15-42010a7be025
-    triggerName: Printing_Surface_Trigger
-    triggerMessage: "has completado una parte del proceso de serigrafia (Seleccionar
-      Superficie de impresi\xF3n)."
-    destinationSection: c6c1009c-8734-11f0-baa0-42010a7be01f
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: 2645012e-a3b6-11f0-b43f-42010a7be025
-    triggerName: Tensioning_table_Trigger
-    triggerMessage: "Est\xE1s en el \xE1rea de aprendizaje(Mesa de tensado) ."
-    destinationSection: f734fb18-a3b6-11f0-8689-42010a7be025
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: dce655d4-a3bd-11f0-819c-42010a7be025
-    triggerName: Ink_Zone_Trigger
-    triggerMessage: "Est\xE1s en el \xE1rea de aprendizaje(Zona de tintas) ."
-    destinationSection: bbca2ed4-a3bd-11f0-b0e5-42010a7be025
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: 92525a9c-a3c0-11f0-90a9-42010a7be025
-    triggerName: Developing_Room_Trigger
-    triggerMessage: "Est\xE1s en el \xE1rea de aprendizaje(Cuarto de revelado) ."
-    destinationSection: 937bb7c4-a3c0-11f0-8540-42010a7be025
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: 4ff1dff6-875a-11f0-8e4a-42010a7be01f
-    triggerName: Screen_Printing_Tirgger
-    triggerMessage: "Est\xE1s en el \xE1rea de selecci\xF3n de pulpo para serigraf\xEDa,
-      y has completado todo el proceso (Impresi\xF3n)."
-    destinationSection: 385032fc-8738-11f0-baa0-42010a7be01f
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: 8946607a-8745-11f0-802f-42010a7be01f
-    triggerName: Missing_Printing_Surface
-    triggerMessage: "Est\xE1s en el \xE1rea de selecci\xF3n de elementos de serigraf\xEDa,
-      y has fallado en una parte del proceso (Seleccionar tinta). \n\nPrimero, seleccione
-      una superficie de impresi\xF3n. Dependiendo del tipo de superficie sobre la
-      que vaya a imprimir, deber\xE1 seleccionar la tinta. Se ofrece una breve explicaci\xF3n
-      de las superficies de impresi\xF3n y sus caracter\xEDsticas."
-    destinationSection: 1325297e-8738-11f0-b1a1-42010a7be01f
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: 8d3be1ba-8758-11f0-b388-42010a7be01f
-    triggerName: Ink_Trigger
-    triggerMessage: "Est\xE1s en el \xE1rea de selecci\xF3n de elementos de serigraf\xEDa
-      y has completado una parte del proceso (Seleccionar Tinta)."
-    destinationSection: 77ec180c-873a-11f0-a640-42010a7be01f
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: 0752c31c-8734-11f0-8f61-42010a7be01f
+  - triggerId: 9aea0a92-5bcb-11f1-8608-42010a7be02e
     triggerName: Welcome_Trigger
-    triggerMessage: "Es el primer vistazo del aprendiz a el \xE1rea de serigraf\xEDa
-      as\xED que dale la bienvenida al aprendiz con exactamente el dialogo de la
-      secci\xF3n de destino."
-    destinationSection: 4237e638-8734-11f0-802f-42010a7be01f
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
-  - triggerId: e1548392-8758-11f0-bf67-42010a7be01f
-    triggerName: Desing_trigger
-    triggerMessage: "Est\xE1s en el \xE1rea de selecci\xF3n de elementos de serigraf\xEDa
-      y has completado una parte del proceso (Seleccionar dise\xF1o)."
-    destinationSection: 0f6fccd6-873c-11f0-802f-42010a7be01f
-    characterId: ea7d4c5e-8732-11f0-8135-42010a7be01f
+    triggerMessage: '
+
+      The user has entered the screen printing room and started
+      the screen printing process.'
+    destinationSection: 97da9870-5bcc-11f1-afda-42010a7be02e
+    characterId: c00dd506-5ba3-11f1-be66-42010a7be02e
+  - triggerId: 02d7a4c4-5bcd-11f1-8712-42010a7be02e
+    triggerName: Final_Trigger
+    triggerMessage: The user has successfully completed the screen printing process.
+    destinationSection: 187ed036-5bcd-11f1-91b8-42010a7be02e
+    characterId: c00dd506-5ba3-11f1-be66-42010a7be02e
 --- !u!1 &2128908161
 GameObject:
   m_ObjectHideFlags: 0
@@ -14969,6 +14728,10 @@ PrefabInstance:
     - target: {fileID: 3302475144904649318, guid: f244b81f2c04dbc41af16e5de040d9f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 5.6209793
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308085061997804573, guid: f244b81f2c04dbc41af16e5de040d9f7, type: 3}
+      propertyPath: characterID
+      value: c00dd506-5ba3-11f1-be66-42010a7be02e
       objectReference: {fileID: 0}
     - target: {fileID: 3308085061997804573, guid: f244b81f2c04dbc41af16e5de040d9f7, type: 3}
       propertyPath: chatInputField
