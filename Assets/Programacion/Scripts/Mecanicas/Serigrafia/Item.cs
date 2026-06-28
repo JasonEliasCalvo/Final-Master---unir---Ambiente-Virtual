@@ -1,9 +1,9 @@
+using GLTFast.Schema;
 using UnityEngine;
 
-public abstract class FabricMaterial : ScriptableObject
+public class Item : MonoBehaviour
 {
     public string materialName;
-    [TextArea(1, 6)] public string materialDescription;
     public Sprite materialIcon;
     public GameObject materialPrefab;
 }

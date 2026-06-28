@@ -19,6 +19,7 @@ public class Selected : MonoBehaviour
     [SerializeField] private Material previewColor;
     private GameObject socketPreviewInstance;
     private GameObject socketPreviewSourceRef;
+    private GameObject compatibleObject;
 
     private GameObject lastSelectedObject;
     private Transform hightlight;
@@ -119,13 +120,23 @@ public class Selected : MonoBehaviour
             var xrSocket = hit.collider.GetComponentInParent<XRSocketInteractor>();
             if (xrSocket != null)
             {
-                PlayerController player = GetPlayer();
+                PlayerController player = PlayerController.instance;
 
-                if (!xrSocket.hasSelection && player.CurrentGrab != null && CanPlaceOnXRSocket(player.CurrentGrab, xrSocket))
+                if (!xrSocket.hasSelection && player.Inventory != null)
                 {
-                    HandleSocketHover(xrSocket, hit);
-                    currentSocket = xrSocket;
-                    return true;
+                    foreach (GameObject item in player.Inventory)
+                    {
+                        if (CanPlaceOnXRSocket(item, xrSocket))
+                        {
+                            HandleSocketHover(xrSocket, hit);
+
+                            compatibleObject = item;
+
+                            currentSocket = xrSocket;
+
+                            return true;
+                        }
+                    }
                 }
                 continue;
             }
@@ -161,7 +172,7 @@ public class Selected : MonoBehaviour
     {
         if (xrSocket == null) return;
 
-        GameObject held = GetPlayer().CurrentGrab;
+        GameObject held = compatibleObject;
         bool canPlace = false;
 
         if (held != null)
@@ -194,17 +205,12 @@ public class Selected : MonoBehaviour
         return false;
     }
 
-    private PlayerController GetPlayer()
-    {
-        return PlayerController.instance;
-    }
-
     // -------------------------
     // Interacción (inputs)
     // -------------------------
     private void StartdHandleInteractInput()
     {
-        var player = GetPlayer();
+        var player = PlayerController.instance;
 
         if (currentInteractable != null)
         {
@@ -221,9 +227,7 @@ public class Selected : MonoBehaviour
 
         if (currentSocket != null)
         {
-            if (player == null) return;
-
-            var held = player.CurrentGrab;
+            var held = compatibleObject;
             if (held == null) return;
 
             if (!CanPlaceOnXRSocket(held, currentSocket))
@@ -233,9 +237,7 @@ public class Selected : MonoBehaviour
                 return;
             }
 
-            ScreenPrintingManager.instance.OnObjectDropped(held);
             PlaceHeldInSocket(currentSocket, held);
-            player.ClearCurrentGrabReference();
             HideSocketPreview();
             return;
         }
@@ -244,7 +246,7 @@ public class Selected : MonoBehaviour
     private void EndHandleInteractInput()
     {
         var octopusC = FindFirstObjectByType<OctopusController>();
-        var player = GetPlayer();
+        var player = PlayerController.instance;
 
         if (enableInteractable != null)
         {
@@ -333,15 +335,19 @@ public class Selected : MonoBehaviour
         if (socket == null || held == null) return;
 
         Transform attach = socket.GetAttachTransform(null) ?? socket.transform;
-        socket.enabled = true; 
+
+        socket.enabled = true;
+        
         held.transform.position = attach.position;
         held.transform.rotation = attach.rotation;
+
+        PlayerController.instance.RemoveFromInventory(held, false);
     }
 
 
     private void ShowSocketPreviewAt(Transform attach)
     {
-        var held = GetPlayer().CurrentGrab;
+        var held = compatibleObject;
         if (held == null)
         {
             HideSocketPreview();

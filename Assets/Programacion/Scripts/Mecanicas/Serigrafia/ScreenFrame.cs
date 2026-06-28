@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class ScreenFrame : MonoBehaviour
+public class ScreenFrame : Item
 {
     private Ink currentInk;
     public Frame frameData;

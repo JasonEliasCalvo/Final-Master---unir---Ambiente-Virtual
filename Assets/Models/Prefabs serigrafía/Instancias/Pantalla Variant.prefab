@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21779152b990db4b938f3b6c3460a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frameData: {fileID: 0}
   _renderer: {fileID: 7266129796617341039}
   squeegeeObj: {fileID: 0}
   xRGrab: {fileID: 5736422269095642110}
@@ -535,7 +536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1183339538745701278, guid: 81e3e14a797cb89499f6d5ad0887a375, type: 3}
       propertyPath: m_TagString
-      value: Interactable
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1219917364997188738, guid: 81e3e14a797cb89499f6d5ad0887a375, type: 3}
       propertyPath: m_LocalPosition.x
@@ -592,6 +593,14 @@ PrefabInstance:
     - target: {fileID: 5113653931720911768, guid: 81e3e14a797cb89499f6d5ad0887a375, type: 3}
       propertyPath: m_Center.z
       value: 0.018527525
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629940351298812832, guid: 81e3e14a797cb89499f6d5ad0887a375, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629940351298812832, guid: 81e3e14a797cb89499f6d5ad0887a375, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

@@ -8,13 +8,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1398546711829729007, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
+      propertyPath: interactionTypes
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2264024318353349350, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
       propertyPath: frameData
       value: 
       objectReference: {fileID: 11400000, guid: 187974cfbdf8f5544b7bcb89233bfe8a, type: 2}
+    - target: {fileID: 2264024318353349350, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
+      propertyPath: materialIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: cf90146d002978341a63b1660f1edf40, type: 3}
+    - target: {fileID: 2578623418377385435, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710072359124131737, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933960512865426808, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3132250130539210349, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
       propertyPath: m_Name
-      value: Pantalla Variant Variant
+      value: 54 Hilos Pantalla Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132250130539210349, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132250130539210349, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
       objectReference: {fileID: 0}
     - target: {fileID: 3167694712342952305, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56,7 +84,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6171186756591443302, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192739673424594152, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266129796617341039, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429156462311042643, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429156462311042643, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1398546711829729007, guid: a3a2b6f749670b84693dcd4c6cacf02f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -300,6 +300,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   APIKey: 
+--- !u!1 &1277380441127075293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8817610719103614071}
+  m_Layer: 0
+  m_Name: "Punto de aparici\xF3n"
+  m_TagString: Untagged
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8817610719103614071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277380441127075293}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2462152112110927585}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1333767138623841749
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +414,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2884977525333094485}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -464,9 +495,7 @@ MonoBehaviour:
   runKey: 304
   movementState: 0
   sensitivity: {x: 0.1, y: 0.07}
-  dropForce: {x: 50, y: 1}
   handParent: {fileID: 2462152112110927585}
-  dropPoint: {fileID: 6598071145422579086}
   isGrabbed: 0
 --- !u!114 &8967263147899545813
 MonoBehaviour:
@@ -541,6 +570,7 @@ Transform:
   m_LocalPosition: {x: 0.60999966, y: -0.31, z: 0.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8817610719103614071}
   m_Father: {fileID: 7018496484551515401}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

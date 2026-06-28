@@ -231,12 +231,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a51a7897143424ea918f3fd3cf19fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionTypes: 8
+  interactionTypes: 9
   justOneInteraction: 0
   canInteract: 1
   onInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5173076402110321384}
+        m_TargetAssemblyTypeName: Item, Assembly-CSharp
+        m_MethodName: Get
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   endInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -256,6 +268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee260d303e280f43b1213734f35a1a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materialName: Escobillin
+  materialIcon: {fileID: 21300000, guid: 0388eb0010829574493881f4226d3f3a, type: 3}
+  materialPrefab: {fileID: 0}
   rb: {fileID: 2685704973898924514}
 --- !u!65 &424844148797871351
 BoxCollider:

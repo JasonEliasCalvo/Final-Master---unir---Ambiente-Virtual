@@ -70,11 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 610c2209ba243624b83f5d32734c2b7f, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 610c2209ba243624b83f5d32734c2b7f, type: 3}
       propertyPath: m_TagString
-      value: Interactable
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -86,9 +86,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 610c2209ba243624b83f5d32734c2b7f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7119016057870373722}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 610c2209ba243624b83f5d32734c2b7f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 434308807307226777}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 610c2209ba243624b83f5d32734c2b7f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1887705281220036972}
@@ -144,36 +141,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &434308807307226777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4758886257678607690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a51a7897143424ea918f3fd3cf19fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionTypes: 8
-  justOneInteraction: 0
-  canInteract: 1
-  onInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  endInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  selectecObject: {fileID: 0}
-  itemName: Camisa
-  ID: 0
-  dontDestroyOnSelect: 0
 --- !u!114 &1887705281220036972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488e8bef2d84fec44a14a4d6afc87a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materialName: 
+  materialIcon: {fileID: 21300000, guid: 1c57beb8c7ac8bc47afe5de366f53cff, type: 3}
+  materialPrefab: {fileID: 0}
   currentMaterial: {fileID: 0}
   surfaceData: {fileID: 11400000, guid: eb6fd33370a87ea4e955861e0ab987ff, type: 2}
   customizedGrab: {fileID: 0}

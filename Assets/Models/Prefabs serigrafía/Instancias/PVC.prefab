@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4869522484664947316}
   - component: {fileID: 7059582830232919620}
   - component: {fileID: 2932034216622181717}
-  - component: {fileID: 8058766837340896274}
   - component: {fileID: 5274713062451179017}
   m_Layer: 6
   m_Name: PVC
@@ -59,8 +58,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -97,32 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d91beffe209bc40886ee53926f1f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materialName: 
+  materialIcon: {fileID: 21300000, guid: 713bc43f43097ff4ca2a427553c621d5, type: 3}
+  materialPrefab: {fileID: 0}
   inkData: {fileID: 11400000, guid: f90d47e0153c25a47a92e06f744c935f, type: 2}
---- !u!114 &8058766837340896274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3043805426427183651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a51a7897143424ea918f3fd3cf19fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionTypes: 8
-  justOneInteraction: 0
-  canInteract: 1
-  onInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  endInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  selectecObject: {fileID: 0}
-  itemName: 
-  ID: 0
-  dontDestroyOnSelect: 0
 --- !u!114 &5274713062451179017
 MonoBehaviour:
   m_ObjectHideFlags: 0

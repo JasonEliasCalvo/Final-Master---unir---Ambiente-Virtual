@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PrintSurfaceInstance : MonoBehaviour
+public class PrintSurfaceInstance : Item
 {
     public GameObject currentMaterial;
     public PrintSurface surfaceData;

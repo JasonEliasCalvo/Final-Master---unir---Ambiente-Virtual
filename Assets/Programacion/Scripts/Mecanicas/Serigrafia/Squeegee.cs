@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Squeegee : MonoBehaviour
+public class Squeegee : Item
 {
     public Rigidbody rb;
 }

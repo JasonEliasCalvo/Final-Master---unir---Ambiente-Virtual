@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 9070315485996480086}
   - component: {fileID: 7766906967998884437}
   - component: {fileID: 6135526675842768534}
-  - component: {fileID: 1222503840814669737}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Camisa (1)
-  m_TagString: Interactable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,8 +58,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -239,31 +238,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   locked: 0
   isInSocket: 0
---- !u!114 &1222503840814669737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6517312451422890640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a51a7897143424ea918f3fd3cf19fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionTypes: 8
-  justOneInteraction: 0
-  canInteract: 1
-  onInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  endInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  selectecObject: {fileID: 0}
-  itemName: 
-  ID: 0
-  dontDestroyOnSelect: 0
 --- !u!1001 &61370947080588896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -338,7 +312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d6f989b17dfaa6642a3647c470d6b8dd, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d6f989b17dfaa6642a3647c470d6b8dd, type: 3}
       propertyPath: m_TagString
@@ -380,6 +354,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488e8bef2d84fec44a14a4d6afc87a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materialName: 
+  materialIcon: {fileID: 21300000, guid: 4994cee74c463d142a2e39cbf09a3ca8, type: 3}
+  materialPrefab: {fileID: 0}
   currentMaterial: {fileID: 872398004756788017}
   surfaceData: {fileID: 11400000, guid: 0d9ba8f43e1e322418a77aa7c193786f, type: 2}
   customizedGrab: {fileID: 6135526675842768534}
@@ -510,6 +487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 9048443667298921904, guid: 419aa57ffa0baab4a930a27833121efb, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -627,6 +608,10 @@ PrefabInstance:
     - target: {fileID: 9048443667298921904, guid: 419aa57ffa0baab4a930a27833121efb, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048443667298921904, guid: 419aa57ffa0baab4a930a27833121efb, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9048443667298921904, guid: 419aa57ffa0baab4a930a27833121efb, type: 3}
       propertyPath: m_IsActive

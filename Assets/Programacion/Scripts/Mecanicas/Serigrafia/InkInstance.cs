@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InkInstance : MonoBehaviour
+public class InkInstance : Item
 {
     public Ink inkData;
 

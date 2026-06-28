@@ -1,9 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,12 +26,10 @@ public class PlayerController : MonoBehaviour
     public Vector2 sensitivity = new Vector2(1f, 0.7f);
 
     [Header("Ajustes de GrabAndRelease")]
-    [SerializeField] private Vector2 dropForce = new Vector2(50, 1);
     [SerializeField] private Transform handParent;
-    [SerializeField] private Transform dropPoint;
     [HideInInspector] public bool isGrabbed = false;
-    private GameObject currentGrab;
-    private Rigidbody rbGrab;
+
+    public List<GameObject> Inventory = new List<GameObject>();
 
     private Camera cam;
     private CharacterController chController;
@@ -45,8 +44,6 @@ public class PlayerController : MonoBehaviour
 
     public XRSlider CurrentSliderTarget { get; set; }
     public XRKnob CurrentWheelTarget { get; set; }
-
-    public GameObject CurrentGrab { get => currentGrab; set => currentGrab = value; }
 
     // -------------------------
     // Ciclo de vida
@@ -83,7 +80,6 @@ public class PlayerController : MonoBehaviour
         };
 
         inputActions.Player.Look.canceled += ctx => lookInput = Vector3.zero;
-        inputActions.Player.Drop.performed += OnDropInput;
 
         inputActions.Player.UpDown.performed += ctx =>
         {
@@ -125,42 +121,116 @@ public class PlayerController : MonoBehaviour
         DeactivateMovement();
     }
 
-    public void ClearCurrentGrabReference()
+    public void AddToInventory(GameObject obj)
     {
-        isGrabbed = false;
+        if (obj == null)
+            return;
 
-        if (currentGrab != null)
-        {
-            CurrentGrab = null;
-        }
+        RemoveSameType(obj);
 
-        if (rbGrab != null)
-        {
-            rbGrab = null;
-        }
+        Inventory.Add(obj);
 
-        UIManager.instance.ShowDropPanel(false);
-        Debug.Log("Referencia de objeto agarrado limpiada.");
+        RefreshInventoryUI();
     }
 
-    private void CheckGrabObject()
+    private void RemoveSameType(GameObject obj)
     {
-        if (CurrentGrab == null) return;
+        for (int i = Inventory.Count - 1; i >= 0; i--)
+        {
+            GameObject current = Inventory[i];
 
-        var customGrab = CurrentGrab.GetComponent<CustomizedGrab>();
-        if (customGrab != null && (customGrab.locked || customGrab.isInSocket))
-        {
-            isGrabbed = false;
-            CurrentGrab.transform.SetParent(null);
-            ScreenPrintingManager.instance.OnObjectDropped(CurrentGrab);
-            rbGrab = null;
-            CurrentGrab = null;
-            UIManager.instance.ShowDropPanel(false);
+            if (current == null)
+                continue;
+
+            bool sameType =
+                (FindComponent<PrintSurfaceInstance>(current) && FindComponent<PrintSurfaceInstance>(obj)) ||
+                (FindComponent<InkInstance>(current) && FindComponent<InkInstance>(obj)) ||
+                (FindComponent<ScreenFrame>(current) && FindComponent<ScreenFrame>(obj)) ||
+                (FindComponent<Squeegee>(current) && FindComponent<Squeegee>(obj));
+
+            if (sameType)
+            {
+                Destroy(current);
+                Inventory.RemoveAt(i);
+            }
         }
-        else
+    }
+
+    public void RemoveFromInventory(GameObject obj, bool destroy = true)
+    {
+        if (obj == null)
+            return;
+
+        if (Inventory.Remove(obj))
         {
-            UIManager.instance.ShowDropPanel(true);
+            if (destroy)
+                Destroy(obj);
+
+            RefreshInventoryUI();
         }
+    }
+
+    public void ClearInventory(bool destroyObjects = true)
+    {
+        foreach (GameObject item in Inventory)
+        {
+            if (item == null)
+                continue;
+
+            if (destroyObjects)
+                Destroy(item);
+        }
+
+        Inventory.Clear();
+
+        RefreshInventoryUI();
+    }
+
+    private T FindComponent<T>(GameObject obj) where T : Component
+    {
+        if (obj == null)
+            return null;
+
+        if (obj.TryGetComponent(out T component))
+            return component;
+
+        return obj.GetComponentInChildren<T>(true);
+    }
+
+    public void RefreshInventoryUI()
+    {
+        var screen = ScreenPrintingManager.instance.inventoryScreens;
+
+        foreach (var materialScreen in screen)
+            materialScreen.SetItem(null);
+
+        PrintSurfaceInstance surface = null;
+        InkInstance ink = null;
+        ScreenFrame frame = null;
+        Squeegee squeegee = null;
+
+        Debug.Log("Pantallas" + screen.Count);
+        Debug.Log("Inventario" + Inventory.Count);
+
+        foreach (var obj in Inventory)
+        {
+            if (surface == null)
+                surface = FindComponent<PrintSurfaceInstance>(obj);
+
+            if (ink == null)
+                ink = FindComponent<InkInstance>(obj);
+
+            if (frame == null)
+                frame = FindComponent<ScreenFrame>(obj);
+
+            if (squeegee == null)
+                squeegee = FindComponent<Squeegee>(obj);
+        }
+
+        screen[0].SetItem(surface);
+        screen[1].SetItem(ink);
+        screen[2].SetItem(frame);
+        screen[3].SetItem(squeegee);
     }
 
     // -------------------------
@@ -181,13 +251,11 @@ public class PlayerController : MonoBehaviour
             HandleSliderControl();
             HandleWheelContol();
         }
-
-        CheckGrabObject();
     }
 
     private void HandleMovement()
     {
-        if(Input.GetKey(runKey))
+        if (Input.GetKey(runKey))
             isRunning = true;
         else
             isRunning = false;
@@ -225,7 +293,6 @@ public class PlayerController : MonoBehaviour
 
         // Horizontal player rotation
         transform.Rotate(Vector3.up * mouseX);
-
     }
 
     private void HandleSliderControl()
@@ -274,15 +341,6 @@ public class PlayerController : MonoBehaviour
     }
 
     // -------------------------
-    // Interacciones (inputs)
-    // -------------------------
-
-    private void OnDropInput(InputAction.CallbackContext ctx)
-    {
-        Drop();
-    }
-
-    // -------------------------
     // Grab & Release
     // -------------------------
     public void HandleGrab(GameObject _object)
@@ -296,40 +354,24 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (isGrabbed)
-            StartCoroutine(DropAndGrabNext(_object));
-        else
-            Grab(_object);
-    }
-
-    private void Grab(GameObject obj)
-    {
-        var cg = obj.GetComponent<CustomizedGrab>();
-        if (cg != null)
+        if (customGrab != null)
         {
-            cg.enabled = false;
+            customGrab.enabled = false;
         }
 
         var socket = FindAnyObjectByType<Selected>().currentSocket;
         if (socket != null)
         {
             Debug.Log("Objeto estaba en un socket. Forzando salida del socket.");
-            var interactable = cg.GetComponent<IXRSelectInteractable>();
-            socket.interactionManager.SelectExit(socket, interactable);
-            socket.enabled = false;
+            return;
         }
 
-        ScreenPrintingManager.instance.OnObjectPickedUp(obj);
+        AddToInventory(_object);
 
-        isGrabbed = true;
-        CurrentGrab = obj;
-        rbGrab = CurrentGrab.GetComponent<Rigidbody>();
+        _object.transform.SetParent(handParent);
+        _object.transform.localPosition = Vector3.zero;
 
-        rbGrab.isKinematic = true;
-        CurrentGrab.transform.SetParent(handParent);
-        CurrentGrab.transform.localPosition = Vector3.zero;
-        CurrentGrab.transform.localRotation = Quaternion.identity;
-        StartCoroutine(ReenableGrabAndSocket(cg, socket));
+        StartCoroutine(ReenableGrabAndSocket(customGrab, socket));
     }
 
     private IEnumerator ReenableGrabAndSocket(CustomizedGrab cg, XRSocketInteractor socket)
@@ -341,48 +383,6 @@ public class PlayerController : MonoBehaviour
             cg.enabled = true;
         if (socket != null)
             socket.enabled = true;
-    }
-
-    private void Drop()
-    {
-        if (CurrentGrab == null) return;
-
-        ScreenPrintingManager.instance.OnObjectDropped(CurrentGrab);
-
-        isGrabbed = false;
-        CurrentGrab.transform.SetParent(null);
-
-        rbGrab.isKinematic = false;
-        Vector3 dropDirection = cam.transform.forward + cam.transform.up * dropForce.y;
-        rbGrab.AddForce(dropDirection.normalized * dropForce.x, ForceMode.Impulse);
-
-        CurrentGrab = null;
-        rbGrab = null;
-
-        UIManager.instance.ShowDropPanel(false);
-    }
-
-    private IEnumerator DropAndGrabNext(GameObject newObject)
-    {
-        isGrabbed = false;
-
-        if (currentGrab != null)
-        {
-            currentGrab.transform.SetParent(null);
-        }
-
-        if (rbGrab != null)
-        {
-            rbGrab.isKinematic = false;
-            ScreenPrintingManager.instance.OnObjectDropped(CurrentGrab);
-            CurrentGrab.transform.position = dropPoint.position;
-            CurrentGrab.transform.position += transform.right * Random.Range(-0.2f, 0.2f);
-            rbGrab.AddForce((transform.forward + Vector3.up * 0.2f) * 2f, ForceMode.Impulse);
-        }
-
-        yield return new WaitForSeconds(0.1f);
-
-        Grab(newObject);
     }
 
     // -------------------------

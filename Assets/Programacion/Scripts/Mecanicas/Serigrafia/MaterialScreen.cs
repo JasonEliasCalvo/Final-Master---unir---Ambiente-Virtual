@@ -8,19 +8,19 @@ public class MaterialScreen : MonoBehaviour
     public TextMeshProUGUI materialDescriptionText;
     public Image materialImage;
 
-    public void SetMaterial(FabricMaterial material)
+    public void SetItem(Item item)
     {
-        if (material == null)
+        if (item == null)
         {
             materialImage.sprite = null;
-            materialImage.enabled = false; // Opcional: apaga el componente imagen
+            materialImage.enabled = false;
             if (materialNameText != null) materialNameText.text = "";
         }
         else
         {
-            materialImage.sprite = material.materialIcon;
+            materialImage.sprite = item.materialIcon;
             materialImage.enabled = true;
-            if (materialNameText != null) materialNameText.text = material.materialName;
+            if (materialNameText != null) materialNameText.text = item.materialName;
         }
     }
 }

@@ -84,13 +84,11 @@ public class InteractableOptions : MonoBehaviour
                 case InteractionType.InvokeEvent:
                     onInteract?.Invoke();
                     break;
+
                 case InteractionType.SelectMaterial:
                     simulator.SelectMaterialByName(itemName);
-
-                    if (!dontDestroyOnSelect)
-                        simulator.SetGrabbedObject(gameObject);
-
                     break;
+
                 case InteractionType.GrabAndRelease:
 
                     var customGrab = gameObject.GetComponent<CustomizedGrab>();
@@ -102,6 +100,7 @@ public class InteractableOptions : MonoBehaviour
 
                     player.HandleGrab(gameObject);
                     break;
+
                 case InteractionType.StartMoving:
                     var slider = selectecObject.GetComponent<XRSlider>();
                     if (slider != null)

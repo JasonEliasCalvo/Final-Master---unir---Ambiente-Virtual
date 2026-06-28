@@ -302,6 +302,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488e8bef2d84fec44a14a4d6afc87a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materialName: 
+  materialIcon: {fileID: 21300000, guid: 5c63d5ac57807a245854d05e685ba210, type: 3}
+  materialPrefab: {fileID: 0}
   currentMaterial: {fileID: 7959747300437176724}
   surfaceData: {fileID: 11400000, guid: eb6fd33370a87ea4e955861e0ab987ff, type: 2}
   customizedGrab: {fileID: 2845172194296819157}
