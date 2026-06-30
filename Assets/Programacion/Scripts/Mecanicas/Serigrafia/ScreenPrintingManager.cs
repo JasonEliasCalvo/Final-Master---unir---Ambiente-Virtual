@@ -18,7 +18,7 @@ public class ScreenPrintingManager : MonoBehaviour
     [SerializeField] PrintDesign design;
 
     [Header("Eventos")]
-    [SerializeField] private ScreenPrintingEvents events;
+    public ScreenPrintingEvents events;
 
     [Header("Tour Guide")]
     [SerializeField] private TourGuideController tourGuide;
@@ -44,6 +44,7 @@ public class ScreenPrintingManager : MonoBehaviour
         public UnityEvent onSelectDesign;
         public UnityEvent onSelectInk;
         public UnityEvent onSelectFrame;
+        public UnityEvent onInventoryComplet;
         public UnityEvent onEndSimulation;
     }
     #endregion
@@ -290,7 +291,6 @@ public class ScreenPrintingManager : MonoBehaviour
     // -------------------------
     // Helpers - Convai
     // -------------------------
-
     private void CurrectSelectedMaterials()
     {
         UpdateOrCreateConvaiObject("Superficie actual",
@@ -415,7 +415,7 @@ public class ScreenPrintingManager : MonoBehaviour
     // -------------------------
     // Helpers - Generales
     // -------------------------
-    private void InvokeEvents(UnityEvent unityEvents)
+    public void InvokeEvents(UnityEvent unityEvents)
     {
         if (unityEvents == null) return;
         unityEvents?.Invoke();

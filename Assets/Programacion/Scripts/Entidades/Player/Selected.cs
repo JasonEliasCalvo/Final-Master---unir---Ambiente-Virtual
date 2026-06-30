@@ -26,6 +26,10 @@ public class Selected : MonoBehaviour
     public bool hitDetected = false;
     public XRSocketInteractor currentSocket;
 
+    [Header("Sounds")]
+    public AudioClip interactSound;
+    public AudioClip hoverSound;
+
     // -------------------------
     // Ciclo de vida
     // -------------------------
@@ -216,6 +220,8 @@ public class Selected : MonoBehaviour
         {
             currentInteractable.TryInteract();
             enableInteractable = currentInteractable;
+
+            AudioManager.Instance.PlaySound(interactSound);
 
             if (!currentInteractable.InteractionTypes.HasFlag(InteractionType.ShowDescription))
             {

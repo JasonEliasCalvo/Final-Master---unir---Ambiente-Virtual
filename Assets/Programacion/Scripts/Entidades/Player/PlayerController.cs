@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.XR.Content.Interaction;
@@ -231,6 +232,11 @@ public class PlayerController : MonoBehaviour
         screen[1].SetItem(ink);
         screen[2].SetItem(frame);
         screen[3].SetItem(squeegee);
+
+        if(surface != null && ink != null && frame != null && squeegee != null)
+        {
+            ScreenPrintingManager.instance.InvokeEvents(ScreenPrintingManager.instance.events.onInventoryComplet);
+        }
     }
 
     // -------------------------
@@ -354,11 +360,6 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (customGrab != null)
-        {
-            customGrab.enabled = false;
-        }
-
         var socket = FindAnyObjectByType<Selected>().currentSocket;
         if (socket != null)
         {
@@ -367,6 +368,11 @@ public class PlayerController : MonoBehaviour
         }
 
         AddToInventory(_object);
+
+        if (customGrab != null)
+        {
+            customGrab.enabled = false;
+        }
 
         _object.transform.SetParent(handParent);
         _object.transform.localPosition = Vector3.zero;

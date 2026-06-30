@@ -32,19 +32,18 @@ public class UIManager : MonoBehaviour
     public CanvasGroup inventoryHintPanel;
     private bool tutorialShown = false;
 
-    [Header("UI Sounds")]
-    public AudioClip sound;
-
     [Header("UI Setting")]
     public int score = 100;
     public bool showCursor = false;
     public PlayerController player;
-
+    public AudioClip WarningSound;
     public void ShowInventoryTutorial()
     {
         if (tutorialShown || inventoryHintPanel == null) return;
 
         Debug.Log("Mostrando tutorial de inventario");
+
+        return;
 
         tutorialShown = true; // Asegura que solo pase una vez
 
@@ -129,6 +128,7 @@ public class UIManager : MonoBehaviour
     public void ShowWarningPanel(bool state, string message = "")
     {
         warningText.text = message;
+        AudioManager.Instance.PlaySound(WarningSound);
         ShowPanel(warningPanel, state);
     }
 

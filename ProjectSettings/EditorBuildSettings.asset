@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Por defecto Unity/Scenes/Menu de inicio.unity
+    guid: d3e2d1267c1c5dc488fd218cc76cf383
+  - enabled: 1
     path: Assets/Por defecto Unity/Scenes/Serigrafia proseso corto.unity
     guid: 72e75f3a5bb393f48b73a84877c24dd7
   m_configObjects:
