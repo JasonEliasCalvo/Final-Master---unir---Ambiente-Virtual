@@ -67,6 +67,8 @@ public class TourGuideController : MonoBehaviour
 
     public void SendContext(string context)
     {
+        return; //
+
         if (convaiNPC == null) return;
         if (convaiNPC.isCharacterTalking)
         {

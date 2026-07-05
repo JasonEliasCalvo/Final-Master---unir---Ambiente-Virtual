@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
             StartFadeIn();
         }
 
-        Invoke(nameof(GameStart), 0.2f);
+        Invoke(nameof(GameStart), 0.5f);
     }
 
     public void GameStart()
