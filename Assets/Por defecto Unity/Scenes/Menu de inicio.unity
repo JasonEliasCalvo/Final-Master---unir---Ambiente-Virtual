@@ -546,7 +546,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shith
+  m_text: Shift
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d1e46c46c32fdc644acb0bd9412b2248, type: 2}
   m_sharedMaterial: {fileID: 8173872399299848396, guid: d1e46c46c32fdc644acb0bd9412b2248, type: 2}
@@ -5068,7 +5068,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Camara
+  m_text: "C\xE1mara"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d1e46c46c32fdc644acb0bd9412b2248, type: 2}
   m_sharedMaterial: {fileID: 8173872399299848396, guid: d1e46c46c32fdc644acb0bd9412b2248, type: 2}
@@ -5444,7 +5444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mostrar Raton
+  m_text: "Mostrar Rat\xF3n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d1e46c46c32fdc644acb0bd9412b2248, type: 2}
   m_sharedMaterial: {fileID: 8173872399299848396, guid: d1e46c46c32fdc644acb0bd9412b2248, type: 2}
